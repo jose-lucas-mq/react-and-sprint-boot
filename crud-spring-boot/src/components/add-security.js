@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SecurityDataService from "../services/security.service";
+import { createSec } from "../services/security";
 
 export default class AddSecurity extends Component {
     constructor(props) {
@@ -46,7 +46,8 @@ export default class AddSecurity extends Component {
             password: this.state.password
         };
 
-        SecurityDataService.create(data)
+        console.log(data)
+        createSec(data)
             .then(response => {
                 this.setState({
                     id: response.data.id,

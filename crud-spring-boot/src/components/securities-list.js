@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SecurityDataService from "../services/security.service";
+import { getAllSec } from "../services/security";
 import { Link } from "react-router-dom";
 
 export default class SecurityList extends Component {
@@ -17,11 +17,11 @@ export default class SecurityList extends Component {
     }
 
     componentDidMount(){
-        this.retrieveSecurity();
+      this.retrieveSecurity();
     }
     
     retrieveSecurity(){
-        SecurityDataService.getAll()
+        getAllSec()
             .then(response => {
                 this.setState({
                     securities: response.data
@@ -42,7 +42,7 @@ export default class SecurityList extends Component {
     }
 
     setActiveSecurity(security, index){
-        this.state({
+        this.setState({
             currentIndex: index,
             currentSecurity: security
         });
