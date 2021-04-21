@@ -3,18 +3,18 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import AddSecurity from "./components/add-security.component";
-import Security from "./components/security.component";
-import SecurityList from "./components/securities-list.component";
+import AddSecurity from "./components/add-security";
+import Security from "./components/security";
+import SecurityList from "./components/securities-list";
 
 //files
-import Logo from './images/logo.png';
+import Logo from './images/icon.png';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="container">
           <nav className="navbar navbar-expand-sm navbar-dark">
             <a className="navbar-brand" href="/securities">
               <img src={Logo} alt="" />
@@ -26,7 +26,7 @@ class App extends Component {
                   Security
                         </Link>
               </li>
-              <li className="nav-item"> './A
+              <li className="nav-item"> 
                   <Link to={"/add"} className="nav-link">
                   Add
                   </Link>

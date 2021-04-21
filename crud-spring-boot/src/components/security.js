@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SecurityDataService from "../services/security.service";
+import {  updateSec, getSec, deleteSec } from "../services/security";
 
 export default class Security extends Component {
     constructor(props) {
@@ -66,7 +66,7 @@ export default class Security extends Component {
     }
 
     getSecurity(id){
-        SecurityDataService.get(id)
+        getSec(id)
             .then(response => {
                 this.setState({
                     currentSecurity: response.data
@@ -79,7 +79,7 @@ export default class Security extends Component {
     }
 
     updateSecurity(){
-        SecurityDataService.update(
+        updateSec(
             this.state.currentSecurity.id,
             this.state.currentSecurity
         )
@@ -87,15 +87,14 @@ export default class Security extends Component {
             console.log(response.data);
             this.setState({
                 message: "Os dados do analista foram atualizados com sucesso"
-            })
-            .catch(e => {
-                console.log(e);
-            })
+            })  
+        }).catch(e => {
+            console.log(e);
         })
     }
 
     deleteSecurity(){
-        SecurityDataService.delete(this.state.currentSecurity.id)
+        deleteSec(this.state.currentSecurity.id)
             .then(response => {
                 console.log(response.data);
                 this.props.history.push('/securities')
