@@ -19,7 +19,7 @@ export default class SecurityList extends Component {
     componentDidMount(){
         this.retrieveSecurity();
     }
-
+    
     retrieveSecurity(){
         SecurityDataService.getAll()
             .then(response => {

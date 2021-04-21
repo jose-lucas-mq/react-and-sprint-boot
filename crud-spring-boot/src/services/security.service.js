@@ -6,8 +6,7 @@ class SecurityDataService{
     }
 
     get(id){
-        return http.get(`/securityanalyst/${id}`)
-
+        return http.get(`/securityanalyst/${id}`);
     }
 
     create(data){
